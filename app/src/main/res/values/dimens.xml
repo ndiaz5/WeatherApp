@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="city_result_item_padding_vertical">8dp</dimen>
+    <dimen name="daily_temp_margin_bottom">8dp</dimen>
+    <dimen name="search_image_transalation_z">1dp</dimen>
+</resources>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?colorButtonNormal">
+
+
+    <ImageView
+        android:id="@+id/searchImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_icon_search"
+        android:translationZ="@dimen/search_image_transalation_z"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".05" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/headerRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/dailyRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/list_item_header"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dailyRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/time_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".15"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerRecyclerView"
+        tools:listitem="@layout/list_item_day" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/label_group"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:constraint_referenced_ids="temp_label, time_label, rain_label, wind_label, humidity_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/time_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="70dp"
+        android:gravity="bottom|center_horizontal"
+        android:text="@string/time"
+        app:layout_constraintBottom_toTopOf="@id/hourly_rv"
+        app:layout_constraintEnd_toStartOf="@id/temp_label"
+        app:layout_constraintHeight_percent=".055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dailyRecyclerView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/temp_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="bottom|center_horizontal"
+        android:text="@string/temp"
+        app:layout_constraintBottom_toTopOf="@id/hourly_rv"
+        app:layout_constraintEnd_toStartOf="@id/rain_label"
+        app:layout_constraintStart_toEndOf="@id/time_label"
+        app:layout_constraintTop_toBottomOf="@id/dailyRecyclerView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rain_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="bottom|center_horizontal"
+        android:text="@string/chance_of_rain"
+        app:layout_constraintBottom_toTopOf="@id/hourly_rv"
+        app:layout_constraintEnd_toStartOf="@id/wind_label"
+        app:layout_constraintStart_toEndOf="@id/temp_label"
+        app:layout_constraintTop_toBottomOf="@id/dailyRecyclerView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/wind_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="bottom|center_horizontal"
+        android:text="@string/wind_mph"
+        app:layout_constraintBottom_toTopOf="@id/hourly_rv"
+        app:layout_constraintEnd_toStartOf="@id/humidity_label"
+        app:layout_constraintStart_toEndOf="@id/rain_label"
+        app:layout_constraintTop_toBottomOf="@id/dailyRecyclerView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/humidity_label"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="bottom|center_horizontal"
+        android:text="@string/humidity"
+        app:layout_constraintBottom_toTopOf="@id/hourly_rv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/wind_label"
+        app:layout_constraintTop_toBottomOf="@id/dailyRecyclerView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hourly_rv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time_label"
+        tools:listitem="@layout/list_item_hour" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/empty_state_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_data_to_display"
+        android:textAppearance="?textAppearanceHeadline4"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
